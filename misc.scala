@@ -158,3 +158,38 @@ for ((key, value) <- colors) {
 }
 // key: yellow, value: #FF000
 // key: green, value: #008000
+
+
+// HIGHER ORDER FUNCTIONS
+
+// A. HOFs that return a new collection
+// 1. Map
+var list = List(1,2,3)
+list.map(x => x + 1)
+// => res27: List[Int] = List(2, 3, 4) // map returns a new list
+
+// 2. flatMap
+var list = List("Python", "Go")
+list.flatMap(lang => lang + "#")
+// => res29: List[Char] = List(P, y, t, h, o, n, #, G, o, #)
+
+list.flatMap(_+ "#") // the underscore is a placeholder for each value in the list
+// => res29: List[Char] = List(P, y, t, h, o, n, #, G, o, #)
+
+// 3. Filter
+var list = List("Scala", "R", "Python", "Go", "SQL")
+list.filter(lang => lang.contains("S"))
+res31: List[String] = List(Scala, SQL)
+
+//B. HOFs that don't return a new collection
+//1. foreach
+var list = List(1, 2)
+list.foreach(println)
+// =>
+// 1
+// 2
+
+//2. reduce
+var list = List( 3, 7, 13, 16)
+list.reduce((x, y) => x + y) // this could be also  list.reduce(_ + _)
+// => Int = 39
