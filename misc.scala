@@ -52,4 +52,14 @@ def simpleInterest(principal: Int, rate: Double, duration: Int): Double = {
 
        Hello.message // => String = Hello!!!
 
+// FUNCTIONS
+def add(x: Int, y: Int) : Int = {
+    return x + y
+}
+
+def add(x: Int, y: Int) : Int = {
+     x + y // 'return' keyword is optional
+}
+
+def add(x: Int, y: Int) = x + y // curly braces optional on single line blocks
 
