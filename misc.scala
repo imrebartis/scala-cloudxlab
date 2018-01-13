@@ -107,3 +107,54 @@ set = set + 20
 
 set(5)
 // => Boolean = true (since 5 is in the set)
+
+// TUPLES
+// tuples can hold elements of different data types
+
+var t = (14, 45.69, "Australia")
+
+// specifying there'll be 3 elements in the tuple
+var t = Tuple3(14, 45.69, "Australia")
+
+// => t: (Int, Double, String) = (14,45.69,Australia)
+
+t._3
+// => String = Australia
+
+var (my_int, my_double, my_string) = t
+
+// => my_int: Int = 14
+// my_double: Double = 45.69
+// my_string: String = Australia
+
+// tuples are immutable:
+ t._1 = 18
+ // => <console>:12: error: reassignment to val
+//      t._1 = 18
+//           ^
+
+// MAPS
+// collection of key/value pairs
+// by default immutable
+// but maps can be mutable, too, with
+// import scala.collection.mutable.Map
+
+var colors = Map("red" -> "#FF0000", "yellow" -> "#FF000")
+// => colors: scala.collection.immutable.Map[String,String] = Map(red -> #FF0000, yellow -> #FF000)
+
+colors("yellow")
+// => res18: String = #FF000
+
+colors += "green" -> "#008000"
+colors
+// => res20: scala.collection.immutable.Map[String,String] = Map(red -> #FF0000, yellow -> #FF000, green -> #008000)
+
+colors -= "red"
+colors
+// => res22: scala.collection.immutable.Map[String,String] = Map(yellow -> #FF000, green -> #008000)
+
+for ((key, value) <- colors) {
+    printf("key: %s, value: %s\n", key, value)
+}
+// key: yellow, value: #FF000
+// key: green, value: #008000
