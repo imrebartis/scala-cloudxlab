@@ -161,6 +161,7 @@ for ((key, value) <- colors) {
 
 
 // HIGHER ORDER FUNCTIONS
+// = functions that take another function as an argument
 
 // A. HOFs that return a new collection
 // 1. Map
@@ -193,3 +194,19 @@ list.foreach(println)
 var list = List( 3, 7, 13, 16)
 list.reduce((x, y) => x + y) // this could be also  list.reduce(_ + _)
 // => Int = 39
+
+// Interaction with Java
+import java.util.{Date, Locale}
+import java.text.DateFormat._
+
+object USDate {
+    def getDate(): String = {
+        val now = new Date
+        val df = getDateInstance(LONG, Locale.US)
+        return df.format(now)
+    }
+}
+
+USDate.getDate()
+// res0: String = January 14, 2018
+
